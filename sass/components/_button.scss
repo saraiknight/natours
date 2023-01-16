@@ -1,14 +1,19 @@
 .btn {
+  &, // this because the <button> don't have :link and :visited pseudo classes
   &:link,
   &:visited {
     text-transform: uppercase;
     text-decoration: none;
-    font-size: $defult-font-size;
+    font-size: $default-font-size;
     padding: 1.5rem 4rem;
     display: inline-block;
     border-radius: 5rem;
     transition: all 0.2s;
     position: relative;
+
+    //change for the <button> element
+    border: none;
+    cursor: pointer;
   }
   &:hover {
     transform: translateY(-0.3rem);
@@ -19,14 +24,16 @@
       opacity: 0;
     }
   }
-  &:active {
+  &:active,
+  &:focus {
+    border: none;
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
 
   &--white {
     background-color: $color-white;
-    color: $color-gray-dark;
+    color: $color-gray-dark-1;
 
     &::after {
       background-color: $color-white;
@@ -63,7 +70,7 @@
 .btn-text {
   &:link,
   &:visited {
-    font-size: $defult-font-size;
+    font-size: $default-font-size;
     color: $color-primary;
     display: inline-block;
     text-decoration: none;
